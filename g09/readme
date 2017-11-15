@@ -1,0 +1,4 @@
+"gaussian.com" is a template for generating an input file for Gaussian09/16.
+
+01. Sample for minimization. Micro-iteration requires pop=mk
+02. Sample for vibration (harmonic).
