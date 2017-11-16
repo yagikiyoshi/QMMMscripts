@@ -14,6 +14,7 @@
 #
    module load intel
    export OMP_NUM_THREADS=20
+   export KMP_AFFINITY=none
 
    GENESIS=/home/kyagi/devel/genesis/genesis.gat_qmmm/bin/atdyn
    mpirun -np 8 -ppn 2 $GENESIS genesis_qmmm.inp >& genesis_qmmm.out
