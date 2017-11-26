@@ -10,5 +10,4 @@ Gaussian run for QMMM in genesis
 -1 1
 #coordinate#
 #charge#
-#elec_field#
 
