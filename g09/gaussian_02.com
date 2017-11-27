@@ -3,11 +3,12 @@
 %mem=1gb
 #P b3lyp/cc-pVTZ EmpiricalDispersion=GD3 
 scf(conver=8) iop(4/5=100) NoSymm
-Charge Force
+Charge Force Prop=(Field,Read) 
 
 Gaussian run for QMMM in genesis
 
 -1 1
 #coordinate#
 #charge#
+#elec_field#
 
