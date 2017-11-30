@@ -5,6 +5,8 @@ QMINP=$1
 QMOUT=$2
 MOL=${QMINP%.*}
 
+initialchk='../initial.chk'
+
 # -----------------------------------------------
 # Script to run Gaussian
 #
@@ -24,26 +26,19 @@ else
   export GAUSS_SCRDIR=/scr/${USER}/$MOL.$TIME.$$
 fi
 mkdir -p ${GAUSS_SCRDIR}
-sed -i -e "s#SCRDIR#${GAUSS_SCRDIR}#gi" $QMINP
 
 # -----------------------------------------------
-# Restart MO
+# Initial MO
 #
-savechk="gaussian_save.chk"
-if [ -e ${savechk} ]; then
-  cp ${savechk} ${GAUSS_SCRDIR}/gaussian.chk
+if [ $NSTEP -eq 0 ] && [ -e ${initialchk} ]; then
+    cp ${initialchk} gaussian.chk
 fi
 
 # -----------------------------------------------
 # Now exe g09 and create a formatted chk file
 #
 (time $GAUSS_EXEBIN < $QMINP) > ${QMOUT} 2>&1
-formchk ${GAUSS_SCRDIR}/gaussian.chk gaussian.Fchk >& /dev/null
-
-# -----------------------------------------------
-# Save current MO
-#
-cp ${GAUSS_SCRDIR}/gaussian.chk $savechk
+formchk gaussian.chk gaussian.Fchk >& /dev/null
 
 # -----------------------------------------------
 # Remove unnecessary folder
