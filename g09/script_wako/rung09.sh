@@ -3,6 +3,7 @@
 # -----------------------------------------------
 QMINP=$1
 QMOUT=$2
+NSTEP=$3
 MOL=${QMINP%.*}
 
 initialchk='../initial.chk'
