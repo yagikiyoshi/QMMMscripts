@@ -16,11 +16,13 @@
 
 GENESIS=/home/yagi/devel/genesis/genesis.gat_qmmm_beluga/bin/atdyn
 
+export  QM_NUM_THREADS=16
 export OMP_NUM_THREADS=16
-mpirun -machinefile $TMP/machines -np 1 --map-by slot:pe=16 $GENESIS genesis_qmmm.inp >& genesis_qmmm.out
+mpirun -machinefile $TMP/machines -np 1 --map-by slot:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm.inp >& genesis_qmmm.out
 
+export  QM_NUM_THREADS=4
 export OMP_NUM_THREADS=4
-mpirun -machinefile $TMP/machines -np 4 --map-by slot:pe=4 $GENESIS genesis_qmmm_vib.inp >& genesis_qmmm_vib.out
+mpirun -machinefile $TMP/machines -np 4 --map-by slot:pe=${QM_NUM_THREADS}$GENESIS genesis_qmmm_vib.inp >& genesis_qmmm_vib.out
 
 exit 0
 

@@ -25,8 +25,16 @@ mkdir -p ${GAUSS_SCRDIR}
 # Initial MO
 #
 if [ $NSTEP -eq 0 ] && [ -e ${initialchk} ]; then
-    cp ${initialchk} gaussian.chk
+  cp ${initialchk} gaussian.chk
 fi
+
+# -----------------------------------------------
+# SMP parallel setting
+#
+touch $TMP
+echo "%NprocShared=${QM_NUM_THREADS}" >> $TMP
+grep -v -i nproc $QMINP >> $TMP
+mv $TMP $QMINP
 
 # -----------------------------------------------
 # Now exe g16 and create a formatted chk file

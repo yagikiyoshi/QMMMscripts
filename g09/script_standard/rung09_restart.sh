@@ -10,6 +10,5 @@ MOL=${QMINP%.*}
 
 if [ -e ${MOL}.Fchk ]; then
    cp ${MOL}.Fchk gaussian.Fchk
-   exit 0
 fi
 

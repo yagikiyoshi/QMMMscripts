@@ -14,6 +14,7 @@
 #
    module load intel
    export OMP_NUM_THREADS=20
+   export  QM_NUM_THREADS=${OMP_NUM_THREADS}
    export KMP_AFFINITY=none
 
    GENESIS=/home/kyagi/devel/genesis/genesis.gat_qmmm/bin/atdyn
