@@ -34,6 +34,7 @@ fi
 # -----------------------------------------------
 # SMP parallel setting
 #
+TMP=${QMINP}.tmp
 touch $TMP
 echo "%NprocShared=${QM_NUM_THREADS}" >> $TMP
 grep -v -i nproc $QMINP >> $TMP
