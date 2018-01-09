@@ -20,7 +20,7 @@ export QCSCRATCH=$(pwd)
 export PATH=$QC/bin:$QC/exe:${PATH}
 
 # -----------------------------------------------
-# Folder settings
+# Scratch folder settings
 #
 TIME=$(date '+%N')
 export QCLOCALSCR=./$MOL.$TIME.$$
@@ -35,8 +35,16 @@ if [ $NSTEP -eq 0 ] && [ -e ${initial} ]; then
 fi
 
 if [ ! -e ${SAVE} ]; then
-  grep -i -v scf_guess ${QMINP} > tmp
-  mv tmp ${QMINP}
+  TMP=$(mktemp tmp.XXXX)
+  grep -i -v scf_guess ${QMINP} > $TMP
+  mv $TMP ${QMINP}
+fi
+
+# -----------------------------------------------
+# Default QM_NUM_THREADS to OMP_NUM_THREADS
+#
+if [ -z "$QM_NUM_THREADS" ] && [ "${QM_NUM_THREADS:-A}" = "${QM_NUM_THREADS-A}" ]; then
+  QM_NUM_THREADS=$OMP_NUM_THREADS
 fi
 
 # ==============================================================

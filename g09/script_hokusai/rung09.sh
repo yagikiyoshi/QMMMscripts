@@ -9,13 +9,13 @@ MOL=${QMINP%.*}
 initialchk='../initial.chk'
 
 # -----------------------------------------------
-# Script to run Gaussian
+# Settings for Gaussian16
 #
 module load gaussian
 GAUSS_EXEBIN=g16
 
 # -----------------------------------------------
-# Folder settings
+# Scratch folder settings
 #
 TIME=$(date '+%N')
 export GAUSS_SCRDIR=./g09scratch/$MOL.$TIME.$$
@@ -31,8 +31,11 @@ fi
 # -----------------------------------------------
 # SMP parallel setting
 #
-TMP=${QMINP}.tmp
-touch $TMP
+if [ -z "$QM_NUM_THREADS" ] && [ "${QM_NUM_THREADS:-A}" = "${QM_NUM_THREADS-A}" ]; then
+  QM_NUM_THREADS=$OMP_NUM_THREADS
+fi
+
+TMP=$(mktemp tmp.XXXX)
 echo "%NprocShared=${QM_NUM_THREADS}" >> $TMP
 grep -v -i nproc $QMINP >> $TMP
 mv $TMP $QMINP

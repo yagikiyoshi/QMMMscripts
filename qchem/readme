@@ -1,4 +1,7 @@
-"qchem.com" is a template for generating an input file for QChem
+"qchem_xx.inp" is a template for generating an input file for QChem
 
-01. Sample for minimization.
-02. Sample for vibration. gui=2 yields .FChk, which contains dipole moment with more digits.
+qchem_01.inp 
+  Sample for minimization.
+
+qchem_02.inp
+  Sample for vibration. gui=2 yields .FChk, which contains dipole moment with more digits.

@@ -1,1 +1,31 @@
 Scripts for running QMMM using GENESIS
+
+g09
+ Input files and runscript for Gaussian09/16.
+ 
+ o gaussian_xx.com 
+   Sample input files. Description of each files is given
+   in "readme".
+
+ o script_standard
+   Standard script to run GENESIS/Gaussian.
+
+ o script_hokusai
+   Standard script to run GENESIS/Gaussian in HOKUSAI supercomputer in RIKEN.
+
+ o script_wako
+   Standard script to run GENESIS/Gaussian in Sugita-lab's cluster at Wako.
+
+qchem
+ Input files and runscript for QChem4.4
+
+ o qchem_xx.inp
+   Sample input files. Description of each files is given
+   in "readme".
+
+ o script_standard
+   Standard script to run GENESIS/Q-Chem
+
+ o script_wako
+   Standard script to run GENESIS/Q-Chem in Sugita-lab's cluster at Wako.
+

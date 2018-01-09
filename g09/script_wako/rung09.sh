@@ -9,7 +9,7 @@ MOL=${QMINP%.*}
 initialchk='../initial.chk'
 
 # -----------------------------------------------
-# Script to run Gaussian
+# Settings for Gaussian09
 #
 export g09root=/home/mdsoft/gaussian/g09D01_intel16
 export GAUSS_EXEDIR=$g09root/g09
@@ -18,7 +18,7 @@ export PATH=$PATH:$GAUSS_EXEDIR
 export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 
 # -----------------------------------------------
-# Folder settings
+# Scratch folder settings
 #
 TIME=$(date '+%N')
 if [ -e /scr2 ]; then
@@ -38,8 +38,11 @@ fi
 # -----------------------------------------------
 # SMP parallel setting
 #
-TMP=${QMINP}.tmp
-touch $TMP
+if [ -z "$QM_NUM_THREADS" ] && [ "${QM_NUM_THREADS:-A}" = "${QM_NUM_THREADS-A}" ]; then
+  QM_NUM_THREADS=$OMP_NUM_THREADS
+fi
+
+TMP=$(mktemp tmp.XXXX)
 echo "%NprocShared=${QM_NUM_THREADS}" >> $TMP
 grep -v -i nproc $QMINP >> $TMP
 mv $TMP $QMINP
