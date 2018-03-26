@@ -5,3 +5,8 @@ gaussian_01.com
 
 gaussian_02.com
   Sample for vibration (harmonic).
+
+gaussian_03.com
+  Sample for using customized basis sets (gen keyword). The basis sets 
+  must be specified between #charge$ and #elec_field#.
+
