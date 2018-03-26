@@ -3,8 +3,8 @@ QChem run for QMMM in genesis
 $end
 
 $rem
-exchange          HF
-basis             sto-3g
+method            B3LYP
+basis             cc-pVDZ
 jobtype           force
 qm_mm             true
 qmmm_print        false
