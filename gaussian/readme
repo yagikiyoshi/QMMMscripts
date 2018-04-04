@@ -1,4 +1,12 @@
 "gaussian_xx.com" is a template for generating an input file for Gaussian09/16.
+We use a flag
+
+#coordinate#
+#charge#
+#elec_field#
+
+to notice the program where the coordinates of QM atoms and MM charges should 
+be printed.
 
 gaussian_01.com
   Sample for minimization. Micro-iteration requires pop=mk
@@ -9,4 +17,9 @@ gaussian_02.com
 gaussian_03.com
   Sample for using customized basis sets (gen keyword). The basis sets 
   must be specified between #charge$ and #elec_field#.
+
+gaussian_04.com
+  Sample for energy calc. without force. This is used for generating 
+  grid potential in anharmonic calc. Note that #elec_field# is still
+  needed.
 
