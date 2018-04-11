@@ -1,0 +1,24 @@
+This folder contains a script to run Gaussian09/16.
+
+runGau01_standard.sh
+  Standard script to run Gaussian09. You need to modify at least
+  the following for your system.
+
+   1. The folder where Gaussian is installed
+
+       line 14: export g09root=/usr/local/gaussian
+
+   2. The folder where Gaussian reads or writes scratch files
+
+       line 24: export GAUSS_SCRDIR=./$MOL.$TIME.$$
+
+
+runGau02_wako.sh
+  Script to run Gaussian09 in Sugita-lab's cluster in Wako.
+
+runGau03_hokusai.sh
+  Script to run Gaussian09 in HOKUSAI supercomputer in RIKEN.
+
+runGau04_hokusai.sh
+  Script to run Gaussian16 in HOKUSAI supercomputer in RIKEN.
+

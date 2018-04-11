@@ -28,7 +28,7 @@ if [ -e /scr2 ]; then
 else
   export QCLOCALSCR=/scr/${USER}/$MOL.$TIME.$$
 fi
-mkdir -p $QCLOCALSCR
+mkdir -p ${QCLOCALSCR}
 
 # -----------------------------------------------
 # Initial MO
@@ -61,7 +61,7 @@ rm $MOL.e
 # ==============================================================
 # Post process
 #
-rm -r $QCLOCALSCR
+rm -r ${QCLOCALSCR}
 rm pathtable
 
 exit 0

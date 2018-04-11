@@ -18,7 +18,7 @@ GAUSS_EXEBIN=g16
 # Scratch folder settings
 #
 TIME=$(date '+%N')
-export GAUSS_SCRDIR=./g09scratch/$MOL.$TIME.$$
+export GAUSS_SCRDIR=./g16scratch/$MOL.$TIME.$$
 mkdir -p ${GAUSS_SCRDIR}
 
 # -----------------------------------------------

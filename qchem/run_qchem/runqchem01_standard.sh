@@ -13,7 +13,7 @@ initial='../initial_save'
 # ==============================================================
 # Settings for QChem 4.4
 #
-export QC=/home/mdsoft/qchem/qchem_v4.4/intel
+export QC=/usr/local/qchem
 export QCAUX=$QC/qcaux
 export QCSCRATCH=$(pwd)
 . $QC/qcenv.sh

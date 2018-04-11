@@ -4,28 +4,22 @@ gaussian
  Input files and runscript for Gaussian09/16.
  
  o gaussian_xx.com 
-   Sample input files. Description of each files is given
-   in "readme".
+   Sample input files. Description of each files is given in "readme".
 
- o script_standard
-   Standard script to run GENESIS/Gaussian09
+ o run_gaussian
+   Script files to run GENESIS/Gaussian
 
- o script_hokusai
-   Script to run GENESIS/Gaussian16 in HOKUSAI supercomputer in RIKEN.
-
- o script_wako
-   Script to run GENESIS/Gaussian09 in Sugita-lab's cluster at Wako.
 
 qchem
  Input files and runscript for QChem4.4
 
  o qchem_xx.inp
-   Sample input files. Description of each files is given
-   in "readme".
+   Sample input files. Description of each files is given in "readme".
 
- o script_standard
+ o run_qchem
    Standard script to run GENESIS/Q-Chem
 
- o script_wako
-   Script to run GENESIS/Q-Chem in Sugita-lab's cluster at Wako.
+
+run_genesis
+ Script files to run GENESIS
 

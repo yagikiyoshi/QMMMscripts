@@ -11,7 +11,7 @@ initialchk='../initial.chk'
 # -----------------------------------------------
 # Settings for Gaussian09
 #
-export g09root=/Users/kyagi/Work/pgm/gaussian
+export g09root=/usr/local/gaussian
 export GAUSS_EXEDIR=$g09root/g09
 export GAUSS_EXEBIN=$g09root/g09/g09
 export PATH=$PATH:$GAUSS_EXEDIR
