@@ -4,7 +4,7 @@ $end
 
 $rem
 method            B3LYP
-basis             cc-pVDZ
+basis             mixed
 jobtype           force
 qm_mm             true
 qmmm_print        false
@@ -17,5 +17,26 @@ $end
 
 $molecule
 0 1
+$end
+
+$basis
+    O    1
+    aug-cc-pVDZ
+    ****
+    H    2
+    aug-cc-pVDZ
+    ****
+    H    3
+    aug-cc-pVDZ
+    ****
+    O    4
+    cc-pVDZ
+    ****
+    H    5
+    cc-pVDZ
+    ****
+    H    6
+    cc-pVDZ
+    ****
 $end
 
