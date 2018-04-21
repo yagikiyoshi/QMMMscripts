@@ -5,3 +5,8 @@ qchem_01.inp
 
 qchem_02.inp
   Sample for vibration. gui=2 yields .FChk, which contains dipole moment with more digits.
+
+qchem_03.inp 
+  Sample for mixed basis. basis=mixed and $basis section is needed.
+
+

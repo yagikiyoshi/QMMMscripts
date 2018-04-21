@@ -8,9 +8,6 @@ basis             cc-pVDZ
 jobtype           force
 qm_mm             true
 qmmm_print        false
-scf_convergence   8
-thresh            12
-scf_algorithm     DIIS
 max_scf_cycles    500
 symmetry          off
 sym_ignore        true
