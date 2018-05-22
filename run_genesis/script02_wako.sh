@@ -20,8 +20,8 @@
 . /home/mdsoft/mpi-selector/data/ib-openmpi-3.0.0-nobinding_intel-18.0.1_cuda-9.1_cent7.sh
 
 #
-#  Note that older version use "--map-by slot:pe=N" instead of
-#  "--map-by node:pe=N". 
+#  Note that older version of Open MPI (e.g. 1.10.) use 
+#  "--map-by slot:pe=N" instead of #  "--map-by node:pe=N". 
 #
 # ==============================================================
 # Path to atdyn
