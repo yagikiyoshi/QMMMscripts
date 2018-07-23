@@ -1,0 +1,10 @@
+basis        cc-pVDZ
+method       HF
+dftd         no
+charge       0
+spinmult     1
+run          gradient
+resp         yes        # needed for micro-iteration
+convthre     3.0e-05    # scaled by 10 if SCF fails to converge
+guess        scr/c0     # restart from MO of the previous step
+end

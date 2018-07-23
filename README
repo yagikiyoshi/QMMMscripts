@@ -1,5 +1,8 @@
 Scripts for running QMMM using GENESIS
 
+run_genesis
+ Script files to run GENESIS
+
 gaussian
  Input files and runscript for Gaussian09/16.
  
@@ -19,7 +22,12 @@ qchem
  o run_qchem
    Standard script to run GENESIS/Q-Chem
 
+terachem
+ Input files and runscript for TeraChem 1.93
 
-run_genesis
- Script files to run GENESIS
+ o terachem_xx.inp
+   Sample input files. Description of each files is given in "readme".
+
+ o run_tc
+   Standard script to run GENESIS/TeraChem
 
