@@ -30,6 +30,8 @@ fi
 
 # -----------------------------------------------
 # SMP parallel setting
+#   - check if QM_NUM_THREADS is undefined.
+#   - same as "test -v"
 #
 if [ -z "$QM_NUM_THREADS" ] && [ "${QM_NUM_THREADS:-A}" = "${QM_NUM_THREADS-A}" ]; then
   QM_NUM_THREADS=$OMP_NUM_THREADS
