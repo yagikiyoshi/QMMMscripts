@@ -31,3 +31,11 @@ terachem
  o run_tc
    Standard script to run GENESIS/TeraChem
 
+dftb+
+ Input files and runscript for DFTB+ 1.8
+
+ o terachem_xx.inp
+   Sample input files. Description of each files is given in "readme".
+
+ o run_dftb
+   Standard script to run GENESIS/DFTB+

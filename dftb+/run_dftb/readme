@@ -1,0 +1,11 @@
+This folder contains a script to run DFTB+.
+
+runDFTB01_standard.sh
+  Standard script to run DFTB+. You need to modify at least
+  the PATH to a folder where DFTB+ is installed
+
+    line 14: export PATH=/path/to/dftbplus-18.1/_install/bin:$PATH
+
+runDFTB02_wako.sh
+  Script to run DFTB+ in Sugita-lab's cluster in Wako.
+

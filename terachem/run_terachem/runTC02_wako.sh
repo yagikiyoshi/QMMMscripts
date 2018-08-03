@@ -5,7 +5,6 @@ QMINP=$1
 QMOUT=$2
 NSTEP=$3
 MOL=${QMINP%.*}
-SCR=scr
 
 initialmo='../initial.c0'
 
@@ -18,10 +17,18 @@ export LD_LIBRARY_PATH=/home/yagi/pgm/terachem1.93P/TeraChem/lib:$LD_LIBRARY_PAT
 export PATH=/home/yagi/pgm/terachem1.93P/TeraChem/bin:$PATH
 
 # -----------------------------------------------
+# Scratch folder settings
+#
+SCR=$(grep -i scrdir ${QMINP} |awk '{print $2}')
+if [ -z "${SCR}" ]; then
+  SCR=scr
+fi
+mkdir -p ${SCR}
+
+# -----------------------------------------------
 # Initial MO
 #
 if [ $NSTEP -eq 0 ] && [ -e ${initialmo} ]; then
-  mkdir ${SCR}
   cp ${initialmo} ${SCR}/c0
 fi
 

@@ -1,0 +1,19 @@
+"dftb_xx.hsd" is a template for generating an input file for DFTB+
+
+The following options are added by GENESIS.
+
+   Geometry
+   ElectricField
+
+ * Note that the program stops with error if these options are 
+   present in the template.
+
+---
+dftb_01.hsd
+  Sample for minimization with macro/micro-iteration. Self-consistent
+  charges are used for macro-iteration. ReadInitialCharges is used 
+  for restarting the charge.
+
+dftb_02.hsd
+  Sample for writing the charges in text. ReadChargesAsText is
+  needed for restarting the charge.
