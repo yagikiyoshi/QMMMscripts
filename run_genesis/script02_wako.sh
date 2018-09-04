@@ -13,16 +13,9 @@
 # ==============================================================
 #  Cluster in Wako uses Open MPI
 #
-#  In OpenMPI, "--map-by node:pe=N" is needed for a child process 
-#  (i.e., a QM job) to run in N-thread parallel.
-
 #  OpenMPI without SGE Tight Integeration
-. /home/mdsoft/mpi-selector/data/ib-openmpi-3.0.0-nobinding_intel-18.0.1_cuda-9.1_cent7.sh
+. /home/mdsoft/mpi-selector/data/ib-openmpi-3.1.2_intel-18.0.1_cuda-9.1_cent7.sh
 
-#
-#  Note that older version of Open MPI (e.g. 1.10.) use 
-#  "--map-by slot:pe=N" instead of #  "--map-by node:pe=N". 
-#
 # ==============================================================
 # Path to atdyn
 #
@@ -36,7 +29,12 @@ GENESIS=/home/yagi/devel/genesis/genesis.gat_beluga/bin/atdyn
 #
 export  QM_NUM_THREADS=16
 export OMP_NUM_THREADS=16
-mpirun -machinefile $TMP/machines -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_min.inp >& genesis_qmmm_min.out
+
+# without UGE: requires a machine file
+# mpirun -machinefile $TMP/machines -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_min.inp >& genesis_qmmm_min.out
+
+# with UGE
+mpirun -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_min.inp >& genesis_qmmm_min.out
 
 # ==============================================================
 # Example2:
@@ -46,7 +44,12 @@ mpirun -machinefile $TMP/machines -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENE
 #
 export  QM_NUM_THREADS=4
 export OMP_NUM_THREADS=4
-mpirun -machinefile $TMP/machines -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_vib.inp >& genesis_qmmm_vib.out
+
+# without UGE: requires a machine file
+#mpirun -machinefile $TMP/machines -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_vib.inp >& genesis_qmmm_vib.out
+
+# with UGE
+mpirun -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_vib.inp >& genesis_qmmm_vib.out
 
 exit 0
 
