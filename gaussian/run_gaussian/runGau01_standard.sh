@@ -9,6 +9,22 @@ MOL=${QMINP%.*}
 initialchk='../initial.chk'
 
 # -----------------------------------------------
+# Initial MO
+#
+# In the following, the initial MO is copied only 
+# for the 1st step in MD.
+#
+if [ $NSTEP -eq 0 ] && [ -e ${initialchk} ]; then
+  cp ${initialchk} gaussian.chk
+fi
+
+# In other cases, you may want to start always
+# from the same MO, for example, in vibrational 
+# calculations.
+#
+# cp ${initialchk} gaussian.chk
+
+# -----------------------------------------------
 # Settings for Gaussian09
 #
 export g09root=/usr/local/gaussian
@@ -23,13 +39,6 @@ export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 TIME=$(date '+%N')
 export GAUSS_SCRDIR=./$MOL.$TIME.$$
 mkdir -p ${GAUSS_SCRDIR}
-
-# -----------------------------------------------
-# Initial MO
-#
-if [ $NSTEP -eq 0 ] && [ -e ${initialchk} ]; then
-  cp ${initialchk} gaussian.chk
-fi
 
 # -----------------------------------------------
 # SMP parallel setting
