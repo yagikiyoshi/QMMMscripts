@@ -22,3 +22,8 @@ runGau03_hokusai.sh
 runGau04_hokusai.sh
   Script to run Gaussian16 in HOKUSAI supercomputer in RIKEN.
 
+runGau05_init.sh
+  Script to run Gaussian using the same initial MO for all 
+  QM jobs. This script is useful for vibrational calculations to 
+  start the SCF using the MO obtained at the minimum energy geometry.
+  

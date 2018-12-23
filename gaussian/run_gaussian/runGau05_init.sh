@@ -6,29 +6,26 @@ QMOUT=$2
 NSTEP=$3
 MOL=${QMINP%.*}
 
-initialchk='../initial.chk'
-
 # -----------------------------------------------
-# Initial MO
+# Initial MO:  specify the inital MO here.
 #
-# In the following, the initial MO is copied only 
-# for the 1st step in MD.
-#
-if [ $NSTEP -eq 0 ] && [ -e ${initialchk} ]; then
-  cp ${initialchk} gaussian.chk
-fi
+initialchk='../qmmm_mini.0/gaussian.chk'
+cp ${initialchk} gaussian.chk
 
 # -----------------------------------------------
 # Settings for Gaussian09
 #
-module load gaussian/09
-GAUSS_EXEBIN=g09
+export g09root=/usr/local/gaussian
+export GAUSS_EXEDIR=$g09root/g09
+export GAUSS_EXEBIN=$g09root/g09/g09
+export PATH=$PATH:$GAUSS_EXEDIR
+export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 
 # -----------------------------------------------
 # Scratch folder settings
 #
 TIME=$(date '+%N')
-export GAUSS_SCRDIR=./g09scratch/$MOL.$TIME.$$
+export GAUSS_SCRDIR=./$MOL.$TIME.$$
 mkdir -p ${GAUSS_SCRDIR}
 
 # -----------------------------------------------

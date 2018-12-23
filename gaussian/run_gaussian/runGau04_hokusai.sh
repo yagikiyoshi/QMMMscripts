@@ -18,12 +18,6 @@ if [ $NSTEP -eq 0 ] && [ -e ${initialchk} ]; then
   cp ${initialchk} gaussian.chk
 fi
 
-# In other cases, you may want to start always
-# from the same MO, for example, in vibrational 
-# calculations.
-#
-# cp ${initialchk} gaussian.chk
-
 # -----------------------------------------------
 # Settings for Gaussian16
 #
