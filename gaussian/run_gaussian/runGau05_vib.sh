@@ -7,7 +7,8 @@ NSTEP=$3
 MOL=${QMINP%.*}
 
 # -----------------------------------------------
-# Initial MO:  specify the inital MO here.
+# Initial MO: 
+# Always use the last MO of a minimization job.
 #
 initialchk='../qmmm_mini.0/gaussian.chk'
 cp ${initialchk} gaussian.chk
