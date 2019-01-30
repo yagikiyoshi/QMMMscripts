@@ -1,11 +1,11 @@
-This folder contains a script to run GENESIS for QM/MM
+# Script files to run GENESIS for QM/MM
 
-script01_standard.sh
+1. script01_standard.sh  
   Standard script to run GENESIS
 
-script02_wako.sh
+2. script02_wako.sh  
   Script to run GENESIS in Sugita-lab's cluster in Wako.
 
-script03_hokusai.sh
+3. script03_hokusai.sh  
   Script to run GENESIS in HOKUSAI supercomputer in RIKEN.
 

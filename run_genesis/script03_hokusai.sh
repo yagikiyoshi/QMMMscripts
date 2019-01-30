@@ -10,7 +10,7 @@
 #------- Program execution -------#
 
 # ==============================================================
-#  HOKUSAI with IntelMPI
+# HOKUSAI with IntelMPI
 #
 #  Note: GENESIS needs to be complied with IntelMPI:
 #  > ./configure FC=mpiifort CC=mpiicc
@@ -32,8 +32,7 @@
 # ==============================================================
 # Example:
 # The following command runs GENESIS with 8 MPI processes with 20 OMP 
-# thread parallel, and QM jobs with 20 thread parallel each. This is 
-# typically the case for a vibration job.
+# thread parallel, and QM jobs with 20 thread parallel each. 
 #
 export  QM_NUM_THREADS=20
 export OMP_NUM_THREADS=20

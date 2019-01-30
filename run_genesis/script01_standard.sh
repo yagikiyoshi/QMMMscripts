@@ -22,7 +22,7 @@ export OMP_NUM_THREADS=8
 #    sufficient number of threads for QM jobs. Therefore, "--map-by node:pe=8" is 
 #    recommended.
 #
-mpirun -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_mep.inp >& genesis_qmmm_mep.out
+mpirun -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm.inp >& genesis_qmmm.out
 
 # 2) Intel MPI
 #    "-ppn 2" specifies that each node have 2 MPI processes. Together with "-np 4", 

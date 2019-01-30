@@ -11,9 +11,8 @@
 ######################################################
 #
 # ==============================================================
-#  Cluster in Wako uses Open MPI
+# Wako clusters with OpenMPI
 #
-#  OpenMPI without SGE Tight Integeration
 . /home/mdsoft/mpi-selector/data/ib-openmpi-3.1.2_intel-18.0.1_cuda-9.1_cent7.sh
 
 # ==============================================================
@@ -30,11 +29,7 @@ GENESIS=/home/yagi/devel/genesis/genesis.gat_beluga/bin/atdyn
 export  QM_NUM_THREADS=16
 export OMP_NUM_THREADS=16
 
-# without UGE: requires a machine file
-# mpirun -machinefile $TMP/machines -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_min.inp >& genesis_qmmm_min.out
-
-# with UGE
-mpirun -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_min.inp >& genesis_qmmm_min.out
+mpirun -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm.inp >& genesis_qmmm.out
 
 # ==============================================================
 # Example2:
@@ -45,11 +40,7 @@ mpirun -np 1 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_min.inp >&
 export  QM_NUM_THREADS=4
 export OMP_NUM_THREADS=4
 
-# without UGE: requires a machine file
-#mpirun -machinefile $TMP/machines -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_vib.inp >& genesis_qmmm_vib.out
-
-# with UGE
-mpirun -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm_vib.inp >& genesis_qmmm_vib.out
+mpirun -np 4 --map-by node:pe=${QM_NUM_THREADS} $GENESIS genesis_qmmm.inp >& genesis_qmmm.out
 
 exit 0
 

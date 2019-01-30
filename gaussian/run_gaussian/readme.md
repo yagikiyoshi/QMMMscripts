@@ -10,7 +10,7 @@
    - The folder where Gaussian reads or writes scratch files.  
        line 14: scratch=./
 
-   - Optionally, the initial MO.
+   - Optionally, the initial MO.  
        line 18: initialchk='../initial.chk'
 
 2. runGau02_wako.sh  
@@ -24,6 +24,6 @@
 
 5. runGau05_standard.sh  
   Script to always use the same initial MO for QM jobs. 
-  It is useful for a PES generation in anharmonic vibrational 
+  It is useful for the PES generation in anharmonic vibrational 
   calculations.
   

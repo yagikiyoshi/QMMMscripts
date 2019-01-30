@@ -22,7 +22,6 @@ Script files to run GENESIS
     Script files to run TeraChem from GENESIS.
 
 - dftb+  
-Input files and runscript for DFTB+ 1.8
   - dftb_xx.inp  
     Input files for DFTB+ 1.8.
   - run_dftb  
