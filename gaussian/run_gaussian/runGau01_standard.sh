@@ -1,37 +1,43 @@
 #!/bin/bash
 
 # -----------------------------------------------
-QMINP=$1
-QMOUT=$2
-NSTEP=$3
-MOL=${QMINP%.*}
-
-initialchk='../initial.chk'
-
-# -----------------------------------------------
-# Initial MO
-#
-# In the following, the initial MO is copied only 
-# for the 1st step in MD.
-#
-if [ $NSTEP -eq 0 ] && [ -e ${initialchk} ]; then
-  cp ${initialchk} gaussian.chk
-fi
-
-# -----------------------------------------------
 # Settings for Gaussian09
 #
+# --- Set the path for Gaussian ---
 export g09root=/usr/local/gaussian
 export GAUSS_EXEDIR=$g09root/g09
 export GAUSS_EXEBIN=$g09root/g09/g09
 export PATH=$PATH:$GAUSS_EXEDIR
 export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 
+# --- Set the path for a scratch folder ---
+scratch=./
+
+# (optional) 
+# --- Set a chkpoint file to read initial MOs ---
+#initialchk='../initial.chk'
+
+# -----------------------------------------------
+
+QMINP=$1
+QMOUT=$2
+NSTEP=$3
+MOL=${QMINP%.*}
+
+# -----------------------------------------------
+# Initial MO
+#
+# The initial MO is copied only for the 1st step 
+# in MD.
+#
+if [ $NSTEP -eq 0 ] && [ -n "${initialchk}" ] && [ -e ${initialchk} ]; then
+  cp ${initialchk} gaussian.chk
+fi
+
 # -----------------------------------------------
 # Scratch folder settings
 #
-TIME=$(date '+%N')
-export GAUSS_SCRDIR=./$MOL.$TIME.$$
+export GAUSS_SCRDIR=$scratch/$(mktemp -u $MOL.XXXX)
 mkdir -p ${GAUSS_SCRDIR}
 
 # -----------------------------------------------

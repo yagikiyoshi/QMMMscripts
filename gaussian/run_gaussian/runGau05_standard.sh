@@ -1,32 +1,39 @@
 #!/bin/bash
 
 # -----------------------------------------------
-QMINP=$1
-QMOUT=$2
-NSTEP=$3
-MOL=${QMINP%.*}
-
-# -----------------------------------------------
-# Initial MO: 
-# Always use the last MO of a minimization job.
-#
-initialchk='../qmmm_mini.0/gaussian.chk'
-cp ${initialchk} gaussian.chk
-
-# -----------------------------------------------
 # Settings for Gaussian09
 #
+# --- Set the path for Gaussian ---
 export g09root=/usr/local/gaussian
 export GAUSS_EXEDIR=$g09root/g09
 export GAUSS_EXEBIN=$g09root/g09/g09
 export PATH=$PATH:$GAUSS_EXEDIR
 export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 
+# --- Set the path for a scratch folder ---
+scratch=./
+
+# --- Set a chkpoint file to read initial MOs ---
+initialchk='../initial.chk'
+
+# -----------------------------------------------
+
+QMINP=$1
+QMOUT=$2
+NSTEP=$3
+MOL=${QMINP%.*}
+
+# -----------------------------------------------
+# Initial MO
+#
+# Always retrieve the MO from $initialchk
+#
+cp ${initialchk} gaussian.chk
+
 # -----------------------------------------------
 # Scratch folder settings
 #
-TIME=$(date '+%N')
-export GAUSS_SCRDIR=./$MOL.$TIME.$$
+export GAUSS_SCRDIR=$scratch/$(mktemp -u $MOL.XXXX)
 mkdir -p ${GAUSS_SCRDIR}
 
 # -----------------------------------------------
