@@ -3,7 +3,7 @@
 ## Description
 GENESIS calls a script to run Q-Chem with three arguments as follow,
 
-    > runGau.sh INPUT OUTPUT NSTEP
+    > runqchem.sh INPUT OUTPUT NSTEP
 
 Given an input file in the 1st arg., the script produces an output file 
 with a name given in the 2nd arg.  The 3rd arg. is the number of step 
