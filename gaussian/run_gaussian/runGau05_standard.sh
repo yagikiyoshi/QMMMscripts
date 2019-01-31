@@ -13,7 +13,7 @@ export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 # --- Set the path for a scratch folder ---
 scratch=./
 
-# --- Set a chkpoint file to read initial MOs ---
+# --- Set a checkpoint file to read initial MOs ---
 initialchk='../initial.chk'
 
 # -----------------------------------------------
@@ -24,9 +24,7 @@ NSTEP=$3
 MOL=${QMINP%.*}
 
 # -----------------------------------------------
-# Initial MO
-#
-# Always retrieve the MO from $initialchk
+# Initial MO - Always retrieve the MO from $initialchk
 #
 cp ${initialchk} gaussian.chk
 

@@ -14,7 +14,7 @@ export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 scratch=./
 
 # (optional) 
-# --- Set a chkpoint file to read initial MOs ---
+# --- Set a checkpoint file to read initial MOs ---
 #initialchk='../initial.chk'
 
 # -----------------------------------------------
@@ -55,7 +55,7 @@ grep -v -i nproc $QMINP >> $TMP
 mv $TMP $QMINP
 
 # -----------------------------------------------
-# Now exe g09 and create a formatted chk file
+# Now execute GAUSSIAN and create a fchk file
 #
 (time $GAUSS_EXEBIN < $QMINP) > ${QMOUT} 2>&1
 formchk gaussian.chk gaussian.Fchk >& /dev/null

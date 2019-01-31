@@ -10,7 +10,7 @@ GAUSS_EXEBIN=g16
 scratch=./g16scratch
 
 # (optional) 
-# --- Set a chkpoint file to read initial MOs ---
+# --- Set a checkpoint file to read initial MOs ---
 #initialchk='../initial.chk'
 
 # -----------------------------------------------
