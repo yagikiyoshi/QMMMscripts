@@ -1,4 +1,4 @@
-# Sample files to run QM/MM in GENESIS
+# Sample script files to run QM/MM in GENESIS
 
 - run_genesis  
 Script files to run GENESIS

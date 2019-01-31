@@ -1,11 +1,11 @@
 #
 # An example to run 4 replicas (= MPI processes) of QM jobs each in 8-thread 
-# parallel using 2 nodes of 8-core x 2-cpu machine. We want to have 2 QM jobs
-# running in each node.
+# parallel using 2 nodes of 8-core x 2-cpu machine. This example runs two QM 
+# jobs in each node.
 
 # Path to atdyn
 #
-GENESIS=${HOME}/pgm/genesis/bin/atdyn
+GENESIS=/path-to/genesis/bin/atdyn
 
 # QM_NUM_THREADS is for QM jobs, while OMP_NUM_THREADS is for atdyn.
 # They are usually set to be equal.

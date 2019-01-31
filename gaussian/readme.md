@@ -1,6 +1,5 @@
 # Sample files for Gaussian/GENESIS
 
----
 ## Description
 "gaussian_xx.com" are template files to generate input files for Gaussian09/16.
 
@@ -20,7 +19,6 @@ Some relevant keywords to control GAUSSIAN.
 - `Force` calculates gradient.
 - `Prop=(Field,Read)` calculates the electric field.
 
----
 ## List of Contents
 
 1. gaussian_01.com  
