@@ -1,51 +1,61 @@
 #!/bin/bash
-#
-# Script to run Q-Chem
-#
-# ==============================================================
-QMINP=$1
-QMOUT=$2
-NSTEP=$3
-MOL=${QMINP%.*}
 
-initial='../initial_save'
-
-# ==============================================================
-# Settings for QChem 4.4
+# -----------------------------------------------
+# Settings for Q-Chem 4.4
 #
+# --- Set the path for Q-Chem ---
 export QC=/home/mdsoft/qchem/qchem_v4.4/intel
 export QCAUX=$QC/qcaux
 export QCSCRATCH=$(pwd)
 . $QC/qcenv.sh
 export PATH=$QC/bin:$QC/exe:${PATH}
 
-# -----------------------------------------------
-# Scratch folder settings
-#
-TIME=$(date '+%N')
+# --- Set the path for a scratch folder ---
 if [ -e /scr2 ]; then
-  export QCLOCALSCR=/scr2/${USER}/$MOL.$TIME.$$
+  scratch=/scr2/${USER}
 else
-  export QCLOCALSCR=/scr/${USER}/$MOL.$TIME.$$
+  scratch=/scr/${USER}
 fi
-mkdir -p ${QCLOCALSCR}
+
+# (optional) 
+# --- Set a folder where initial MOs are stored ---
+#initial='../initial_save'
+
+# -----------------------------------------------
+
+QMINP=$1
+QMOUT=$2
+NSTEP=$3
+MOL=${QMINP%.*}
 
 # -----------------------------------------------
 # Initial MO
 #
+# The initial MO is copied only for the 1st step 
+# in MD.
+#
 SAVE=qchem_save
-if [ $NSTEP -eq 0 ] && [ -e ${initial} ]; then
+if [ $NSTEP -eq 0 ] && [ -n "${initial}" ] && [ -e ${initial} ]; then
   cp -r ${initial} ${SAVE}
 fi
 
 if [ ! -e ${SAVE} ]; then
+  # Remove an entry for scf_guess in the input
   TMP=$(mktemp tmp.XXXX)
   grep -i -v scf_guess ${QMINP} > $TMP
   mv $TMP ${QMINP}
 fi
 
 # -----------------------------------------------
-# Default QM_NUM_THREADS to OMP_NUM_THREADS
+# Scratch folder settings
+#
+export QCLOCALSCR=$scratch/$(mktemp -u $MOL.XXXX)
+mkdir -p ${QCLOCALSCR}
+
+# -----------------------------------------------
+# SMP parallel setting
+#   - check if QM_NUM_THREADS is undefined.
+#   - same as "test -v"
 #
 if [ -z "$QM_NUM_THREADS" ] && [ "${QM_NUM_THREADS:-A}" = "${QM_NUM_THREADS-A}" ]; then
   QM_NUM_THREADS=$OMP_NUM_THREADS
