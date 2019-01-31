@@ -12,7 +12,7 @@ folder are examples of such script files.
 
 ## List of Content
 
-1. runTC01_standard.sh
+1. runTC01_standard.sh  
   Standard script to run TeraChem. You need to modify at least the following for your system.
 
         # -----------------------------------------------
