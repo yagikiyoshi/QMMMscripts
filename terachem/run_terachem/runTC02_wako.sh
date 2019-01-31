@@ -1,20 +1,27 @@
 #!/bin/bash
 
 # -----------------------------------------------
-QMINP=$1
-QMOUT=$2
-NSTEP=$3
-MOL=${QMINP%.*}
-
-initialmo='../initial.c0'
-
-# -----------------------------------------------
 # Settings for TeraChem
 #
 export TeraChem=/home/yagi/pgm/terachem1.93P/TeraChem
 export NBOEXE=/home/yagi/pgm/terachem1.93P/TeraChem/bin/nbo6.i4.exe
 export LD_LIBRARY_PATH=/home/yagi/pgm/terachem1.93P/TeraChem/lib:$LD_LIBRARY_PATH
 export PATH=/home/yagi/pgm/terachem1.93P/TeraChem/bin:$PATH
+
+# GPU settings
+#
+export CUDA_VISIBLE_DEVICES="0,1"
+
+# (optional) 
+# --- Set a file to read initial MOs ---
+initial='../initial.c0'
+
+# -----------------------------------------------
+
+QMINP=$1
+QMOUT=$2
+NSTEP=$3
+MOL=${QMINP%.*}
 
 # -----------------------------------------------
 # Scratch folder settings
@@ -28,22 +35,26 @@ mkdir -p ${SCR}
 # -----------------------------------------------
 # Initial MO
 #
-if [ $NSTEP -eq 0 ] && [ -e ${initialmo} ]; then
-  cp ${initialmo} ${SCR}/c0
+# The initial MO is copied only for the 1st step 
+# in MD.
+#
+if [ $NSTEP -eq 0 ] && [ -n "${initial}" ] && [ -e ${initial} ]; then
+  cp ${initial} ${SCR}/c0
 fi
 
 # -----------------------------------------------
 # SMP parallel setting
+#   - check if QM_NUM_THREADS is undefined.
+#   - same as "test -v"
 #
-export OMP_NUM_THREADS=1
+if [ -z "$QM_NUM_THREADS" ] && [ "${QM_NUM_THREADS:-A}" = "${QM_NUM_THREADS-A}" ]; then
+  export OMP_NUM_THREADS=1
+else
+  export OMP_NUM_THREADS=${QM_NUM_THREADS}
+fi
 
 # -----------------------------------------------
-# GPU settings
-#
-export CUDA_VISIBLE_DEVICES="0,1"
-
-# -----------------------------------------------
-# Now exe terachem and create a formatted chk file
+# Now exe terachem 
 #
 terachem ${QMINP} >& ${QMOUT}
 
