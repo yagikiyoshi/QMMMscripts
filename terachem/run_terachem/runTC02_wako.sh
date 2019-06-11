@@ -10,7 +10,7 @@ export PATH=/home/yagi/pgm/terachem1.93P/TeraChem/bin:$PATH
 
 # GPU settings
 #
-export CUDA_VISIBLE_DEVICES="0,1"
+export CUDA_VISIBLE_DEVICES="0,1,2,3"
 
 # (optional) 
 # --- Set a file to read initial MOs ---

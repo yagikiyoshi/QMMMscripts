@@ -13,7 +13,7 @@
 # ==============================================================
 # Wako clusters with OpenMPI
 #
-. /home/mdsoft/mpi-selector/data/ib-openmpi-3.1.2_intel-18.0.1_cuda-9.1_cent7.sh
+. /home/mdsoft/mpi-selector/data/eth-openmpi-3.1.2_intel-18.0.1_cuda-9.2_cent7.sh
 
 # ==============================================================
 # Path to atdyn
