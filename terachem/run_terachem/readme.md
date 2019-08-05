@@ -29,12 +29,12 @@ folder are examples of such script files.
         export CUDA_VISIBLE_DEVICES="0,1"   --> (2)
         
         # (optional) 
-        # --- Set a file to read initial MOs ---
-        #initial='../initial.c0'  --> (3)
+        # --- Absolute path to initial MOs ---
+        #c0='/home/mo/initial.c0' --> (3)
 
    (1) The folder where TeraChem is installed.  
    (2) The number and ID of GPU to use in this calculations.  
-   (3) Optionally, the file for an initial MO.  
+   (3) Optionally, absolute path to the initial MO  
 
 2. runTC02_wako.sh  
    Script to run TeraChem in Sugita-lab's cluster in Wako.

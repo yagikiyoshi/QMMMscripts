@@ -4,7 +4,7 @@ dftd         no
 charge       0
 spinmult     1
 run          gradient
-resp         yes        # needed for micro-iteration
+resp         no         # not needed for MD
 convthre     3.0e-05    # scaled by 10 if SCF fails to converge
 guess        c0         # ca0 cb0 for UHF/UKS
 end

@@ -3,19 +3,20 @@
 # -----------------------------------------------
 # Settings for TeraChem
 #
-# --- Set the path for TeraChem ---
-export TeraChem=/path/to/terachem1.93P/TeraChem
-export NBOEXE=/path/to/terachem1.93P/TeraChem/bin/nbo6.i4.exe
-export LD_LIBRARY_PATH=/path/to/terachem1.93P/TeraChem/lib:$LD_LIBRARY_PATH
-export PATH=/path/to/terachem1.93P/TeraChem/bin:$PATH
+export TeraChem=/home/yagi/pgm/terachem1.93P/TeraChem
+export NBOEXE=/home/yagi/pgm/terachem1.93P/TeraChem/bin/nbo6.i4.exe
+export LD_LIBRARY_PATH=/home/yagi/pgm/terachem1.93P/TeraChem/lib:$LD_LIBRARY_PATH
+export PATH=/home/yagi/pgm/terachem1.93P/TeraChem/bin:$PATH
 
 # GPU settings
 #
 export CUDA_VISIBLE_DEVICES="0,1"
 
 # (optional) 
-# --- Set a file to read initial MOs ---
-#initial='../initial.c0'
+# --- Absolute path to initial MOs ---
+#c0='/home/mo/initial.c0'
+#c0a='/home/mo/initial.c0a'
+#c0b='/home/mo/initial.c0b'
 
 # -----------------------------------------------
 
@@ -31,7 +32,6 @@ SCR=$(grep -i scrdir ${QMINP} |awk '{print $2}')
 if [ -z "${SCR}" ]; then
   SCR=scr
 fi
-mkdir -p ${SCR}
 
 # -----------------------------------------------
 # Initial MO
@@ -39,8 +39,14 @@ mkdir -p ${SCR}
 # The initial MO is copied only for the 1st step 
 # in MD.
 #
-if [ $NSTEP -eq 0 ] && [ -n "${initial}" ] && [ -e ${initial} ]; then
-  cp ${initial} ${SCR}/c0
+if [ ! -e c0 ] && [ -n "${c0}" ] && [ -e ${c0} ]; then
+  cp ${c0} c0
+fi
+if [ ! -e c0a ] && [ -n "${c0a}" ] && [ -e ${c0a} ]; then
+  cp ${c0a} c0a
+fi
+if [ ! -e c0b ] && [ -n "${c0b}" ] && [ -e ${c0b} ]; then
+  cp ${c0b} c0b
 fi
 
 # -----------------------------------------------
@@ -55,11 +61,21 @@ else
 fi
 
 # -----------------------------------------------
-# Now exe terachem
+# Now exe terachem 
 #
 terachem ${QMINP} >& ${QMOUT}
 
 # -----------------------------------------------
+# Save MOs for restart
+#
+if [ -e ${SCR}/c0 ]; then
+  cp ${SCR}/c0 c0
+fi
+if [ -e ${SCR}/c0a ]; then
+  cp ${SCR}/c0a c0a
+  cp ${SCR}/c0b c0b
+fi
+
 # Remove unnecessary files
 #
 rm -rf ${SCR}/${MOL}*
