@@ -33,7 +33,7 @@ folder are examples of such script files.
         #c0='/home/mo/initial.c0' --> (3)
 
    (1) The folder where TeraChem is installed.  
-   (2) The number and ID of GPU to use in this calculations.  
+   (2) The number and ID of GPU to use in this calculation.  
    (3) Optionally, absolute path to the initial MO  
 
 2. runTC02_wako.sh  
