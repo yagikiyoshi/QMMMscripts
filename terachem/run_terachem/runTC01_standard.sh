@@ -3,10 +3,10 @@
 # -----------------------------------------------
 # Settings for TeraChem
 #
-export TeraChem=/home/yagi/pgm/terachem1.93P/TeraChem
-export NBOEXE=/home/yagi/pgm/terachem1.93P/TeraChem/bin/nbo6.i4.exe
-export LD_LIBRARY_PATH=/home/yagi/pgm/terachem1.93P/TeraChem/lib:$LD_LIBRARY_PATH
-export PATH=/home/yagi/pgm/terachem1.93P/TeraChem/bin:$PATH
+export TeraChem=/usr/local/terachem1.93P/TeraChem
+export NBOEXE=${TeraChem}/bin/nbo6.i4.exe
+export LD_LIBRARY_PATH=${TeraChem}/lib:$LD_LIBRARY_PATH
+export PATH=${TeraChem}/bin:$PATH
 
 # GPU settings
 #
