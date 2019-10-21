@@ -4,6 +4,7 @@ $end
 
 $rem
 method            B3LYP
+dft_d             empirical_grimme3
 basis             mixed
 jobtype           force
 qm_mm             true
