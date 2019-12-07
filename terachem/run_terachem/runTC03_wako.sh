@@ -3,18 +3,18 @@
 # -----------------------------------------------
 # Settings for TeraChem
 #
-export TeraChem=/usr/local/terachem1.93P/TeraChem
+export TeraChem=/home/yagi/pgm/terachem1.94V/TeraChem
+#export TeraChem=/home/yagi/pgm/terachem1.93P/TeraChem
 export NBOEXE=${TeraChem}/bin/nbo6.i4.exe
 export LD_LIBRARY_PATH=${TeraChem}/lib:$LD_LIBRARY_PATH
 export PATH=${TeraChem}/bin:$PATH
 
 # GPU settings
 #
-export CUDA_VISIBLE_DEVICES="0,1"
+export CUDA_VISIBLE_DEVICES="0,1,2,3"
 
-# (optional) 
 # --- Absolute path to initial MOs ---
-#c0='/home/mo/initial.c0'
+c0='/home/mo/initial.c0'
 #c0a='/home/mo/initial.c0a'
 #c0b='/home/mo/initial.c0b'
 
@@ -36,16 +36,15 @@ fi
 # -----------------------------------------------
 # Initial MO
 #
-# The initial MO is copied only for the 1st step 
-# in MD.
+# The initial MO is always copied, if exists.
 #
-if [ ! -e c0 ] && [ -n "${c0}" ] && [ -e ${c0} ]; then
+if [ -n "${c0}" ] && [ -e ${c0} ]; then
   cp ${c0} c0
 fi
-if [ ! -e c0a ] && [ -n "${c0a}" ] && [ -e ${c0a} ]; then
+if [ -n "${c0a}" ] && [ -e ${c0a} ]; then
   cp ${c0a} c0a
 fi
-if [ ! -e c0b ] && [ -n "${c0b}" ] && [ -e ${c0b} ]; then
+if [ -n "${c0b}" ] && [ -e ${c0b} ]; then
   cp ${c0b} c0b
 fi
 
@@ -66,17 +65,15 @@ fi
 (time terachem ${QMINP}) >& ${QMOUT}
 
 # -----------------------------------------------
-# Save MOs for restart
-#
-if [ -e ${SCR}/c0 ]; then
-  cp ${SCR}/c0 c0
-fi
-if [ -e ${SCR}/c0a ]; then
-  cp ${SCR}/c0a c0a
-  cp ${SCR}/c0b c0b
-fi
-
 # Remove unnecessary files
+#
+#if [ -e ${SCR}/c0 ]; then
+#  rm ${SCR}/c0
+#fi
+#if [ -e ${SCR}/c0a ]; then
+#  rm ${SCR}/c0a
+#  rm ${SCR}/c0b
+#fi
 #
 rm -rf ${SCR}/${MOL}*
 rm -rf ${SCR}/charge_mull.xls

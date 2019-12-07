@@ -63,7 +63,7 @@ fi
 # -----------------------------------------------
 # Now exe terachem 
 #
-terachem ${QMINP} >& ${QMOUT}
+(time terachem ${QMINP}) >& ${QMOUT}
 
 # -----------------------------------------------
 # Save MOs for restart

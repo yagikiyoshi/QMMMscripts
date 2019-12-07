@@ -39,3 +39,29 @@ folder are examples of such script files.
 2. runTC02_wako.sh  
    Script to run TeraChem in Sugita-lab's cluster in Wako.
 
+3. runTC03_wako.sh
+   Always use the same MO to run QM jobs. Often useful for vibrational analysis.
+
+        # --- Absolute path to initial MOs ---
+        c0='/home/mo/initial.c0'                   --> (1)
+        #c0a='/home/mo/initial.c0a'
+        #c0b='/home/mo/initial.c0b'
+
+        # -----------------------------------------------
+        # Initial MO
+        #
+        # The initial MO is always copied, if exists.
+        #
+        if [ -n "${c0}" ] && [ -e ${c0} ]; then
+          cp ${c0} c0                              --> (2)
+        fi
+        if [ -n "${c0a}" ] && [ -e ${c0a} ]; then
+          cp ${c0a} c0a
+        fi
+        if [ -n "${c0b}" ] && [ -e ${c0b} ]; then
+          cp ${c0b} c0b
+        fi
+
+   (1) Specify the initial MO. c0 for closed shell, c0a/c0b for open shell systems.
+   (2) Copied every step if the MO file exists.
+
