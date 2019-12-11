@@ -1,5 +1,5 @@
 basis            cc-pVDZ    # Dunning's cc-pVDZ
-sphericalbasis   yes    # spherical basis for cc-pVDZ
+sphericalbasis   yes        # spherical basis for cc-pVDZ
 method           b3lyp
 dftd             d3
 charge           0

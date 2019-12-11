@@ -19,3 +19,5 @@ Some relevant keywords to control TeraChem:
    Sample for minimization with macro/micro-iteration.
 2. terachem_02.inp  
    Sample for QM/MM-MD. RESP is turned off.
+3. terachem_03.inp  
+   Sample for single point energy.
