@@ -1,0 +1,16 @@
+basis            mixedbasis # name of custom basis files  
+sphericalbasis   yes        # spherical basis for cc-pVDZ
+method           b3lyp
+dftd             d3
+charge           0
+spinmult         1
+run              gradient
+resp             yes        # needed for micro-iteration
+convthre         3.0e-05    # scaled by 10 if SCF fails to converge
+guess            c0         # ca0 cb0 for UHF/UKS
+end
+
+atomname 2
+Hx
+Hy
+
