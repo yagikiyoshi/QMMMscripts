@@ -23,6 +23,6 @@ Script files to run GENESIS
 
 - dftb+  
   - dftb_xx.inp  
-    Input files for DFTB+ 1.8.
+    Input files for DFTB+ 18/19/20.
   - run_dftb  
     Script files to run DFTB+ from GENESIS.

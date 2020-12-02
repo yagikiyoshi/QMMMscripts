@@ -4,11 +4,11 @@
 # Settings for DFTB+
 #
 # --- Set the path for DFTB+ ---
-export PATH=/home/yagi/pgm/dftb/dftbplus-18.1/_install/bin:$PATH
+export PATH=/home/mdsoft/dftb/dftbplus-18.1/_install/bin:$PATH
 
 # (optional) 
 # --- Set a file to read initial charges ---
-initial='../charges.bin_save'
+#initial='../charges.bin_save'
 
 # -----------------------------------------------
 
