@@ -15,8 +15,8 @@ export CUDA_VISIBLE_DEVICES="0,1,2,3"
 
 # --- Absolute path to initial MOs ---
 c0='/home/mo/initial.c0'
-#c0a='/home/mo/initial.c0a'
-#c0b='/home/mo/initial.c0b'
+#ca0='/home/mo/initial.ca0'
+#cb0='/home/mo/initial.cb0'
 
 # -----------------------------------------------
 
@@ -41,11 +41,11 @@ fi
 if [ -n "${c0}" ] && [ -e ${c0} ]; then
   cp ${c0} c0
 fi
-if [ -n "${c0a}" ] && [ -e ${c0a} ]; then
-  cp ${c0a} c0a
+if [ -n "${ca0}" ] && [ -e ${ca0} ]; then
+  cp ${ca0} ca0
 fi
-if [ -n "${c0b}" ] && [ -e ${c0b} ]; then
-  cp ${c0b} c0b
+if [ -n "${cb0}" ] && [ -e ${cb0} ]; then
+  cp ${cb0} cb0
 fi
 
 # -----------------------------------------------
@@ -70,9 +70,9 @@ fi
 #if [ -e ${SCR}/c0 ]; then
 #  rm ${SCR}/c0
 #fi
-#if [ -e ${SCR}/c0a ]; then
-#  rm ${SCR}/c0a
-#  rm ${SCR}/c0b
+#if [ -e ${SCR}/ca0 ]; then
+#  rm ${SCR}/ca0
+#  rm ${SCR}/cb0
 #fi
 #
 rm -rf ${SCR}/${MOL}*

@@ -44,8 +44,8 @@ folder are examples of such script files.
 
         # --- Absolute path to initial MOs ---
         c0='/home/mo/initial.c0'                   --> (1)
-        #c0a='/home/mo/initial.c0a'
-        #c0b='/home/mo/initial.c0b'
+        #ca0='/home/mo/initial.ca0'
+        #cb0='/home/mo/initial.cb0'
 
         # -----------------------------------------------
         # Initial MO
@@ -55,13 +55,13 @@ folder are examples of such script files.
         if [ -n "${c0}" ] && [ -e ${c0} ]; then
           cp ${c0} c0                              --> (2)
         fi
-        if [ -n "${c0a}" ] && [ -e ${c0a} ]; then
-          cp ${c0a} c0a
+        if [ -n "${ca0}" ] && [ -e ${ca0} ]; then
+          cp ${ca0} ca0
         fi
-        if [ -n "${c0b}" ] && [ -e ${c0b} ]; then
-          cp ${c0b} c0b
+        if [ -n "${cb0}" ] && [ -e ${cb0} ]; then
+          cp ${cb0} cb0
         fi
 
-   (1) Specify the initial MO. c0 for closed shell, c0a/c0b for open shell systems.
+   (1) Specify the initial MO. c0 for closed shell, ca0/cb0 for open shell systems.
    (2) Copied every step if the MO file exists.
 
