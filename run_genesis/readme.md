@@ -28,7 +28,7 @@ and
 1. script01_standard.sh  
   Standard script to run GENESIS
 
-2. script02_wako.sh  
+2. script02_wako_ompi.sh, script02_wako_intel.sh  
   Script to submit GENESIS in Sugita-lab's cluster in Wako.
 
 3. script03_hokusai.sh  

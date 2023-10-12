@@ -13,12 +13,12 @@
 # ==============================================================
 # Wako clusters with OpenMPI
 #
-. /home/mdsoft/mpi-selector/data/eth-openmpi-3.1.2_intel-18.0.1_cuda-9.2_cent7.sh
+. /home/mdsoft/mpi-selector/data/eth-openmpi-4.1.5_intel-23.1.0_cuda-12.1_rockylinux8.sh
 
 # ==============================================================
 # Path to atdyn
 #
-GENESIS=/home/yagi/devel/genesis/genesis.gat_beluga/bin/atdyn
+GENESIS=/home/yagi/devel/genesis/genesis2xx_pepper_openmpi-4.1.5_intel-23.1/bin/atdyn
 
 # ==============================================================
 # Example1: 
