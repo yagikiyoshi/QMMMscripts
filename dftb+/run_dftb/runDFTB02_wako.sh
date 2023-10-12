@@ -4,7 +4,7 @@
 # Settings for DFTB+
 #
 # --- Set the path for DFTB+ ---
-export PATH=/home/mdsoft/dftb/dftbplus-18.1/_install/bin:$PATH
+export PATH=/home/mdsoft/dftb/dftbplus-23.1/_install/bin:$PATH
 
 # (optional) 
 # --- Set a file to read initial charges ---

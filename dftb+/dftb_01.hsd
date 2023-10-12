@@ -3,6 +3,7 @@ Driver = {}
 
 Hamiltonian = DFTB {
   SCC                = Yes
+  ThirdOrderFull     = Yes
   Charge             = 0.0
   ReadInitialCharges = Yes
   SlaterKosterFiles  = Type2FileNames {
@@ -10,6 +11,18 @@ Hamiltonian = DFTB {
     Separator = "-"
     Suffix = ".skf"
   }
+  HubbardDerivs {
+    H = -0.1857
+    C = -0.1492
+    N = -0.1535
+    O = -0.1575
+  }
+  HCorrection = Damping {
+    Exponent = 4.05
+  }
+  #for Older version
+  # DampXH  = Yes
+  # DampXHExponent = 4.05
   MaxAngularMomentum {
     H = "s"
     C = "p"
