@@ -19,20 +19,20 @@ Template files to generate input files for ORCA
 
 The following information is added to the file by GENESIS.
 
-- Coordinates of QM atoms 
+- Coordinates of QM atoms  
   The template file must have this line
 
-    *xyzfile 0 1
+      *xyzfile 0 1
 
   On runtime, GENESIS generates a xyz file and adds the file name at the 
   end of this line like this
 
-    *xyzfile 0 1 jobXXXX_qm.xyz
+      *xyzfile 0 1 jobXXXX_qm.xyz
 
-- Point charges
+- Point charges  
   The entry is added by GENESIS
 
-    %pointcharges "jobXXXX_pc.xyz"
+      %pointcharges "jobXXXX_pc.xyz"
 
 ## List of Contents
 1. orca_01.inp  
@@ -42,7 +42,7 @@ The following information is added to the file by GENESIS.
 2. orca_02.inp  
   Sample for vibrational calculations.
 
-3. orca_03.inp
+3. orca_03.inp  
   Sample for energy calc. without force. This is used for generating 
   grid potential in anharmonic calc. 
 
