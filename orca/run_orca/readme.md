@@ -25,7 +25,7 @@ in the simulation (the first step is 0).
         # --- Set a checkpoint file to read initial MOs ---
         # initialchk='../moinp.gbw'  --> (3)
 
-   (1) The folder where ORCA is installed. 
+   (1) The folder where ORCA is installed.  
    (2) The folder where ORCA reads or writes scratch files.  
    (3) Optionally, the gbw file to restart MO.  
 
