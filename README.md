@@ -12,7 +12,7 @@ Script files to run GENESIS
 - orca
   - orca_xx.com  
     Input files for ORCA5
-  - run_orca
+  - run_orca  
     Script files to run ORCA from GENESIS.
 
 - qchem  
