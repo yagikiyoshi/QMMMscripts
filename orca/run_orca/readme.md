@@ -12,7 +12,7 @@ in the simulation (the first step is 0).
 ## List of Content
 
 1. runORCA01_standard.sh  
-   Standard script to run GAUSSIAN. You need to modify the following for your system.
+   Standard script to run ORCA. You need to modify the following for your system.
 
         # --- Set the path for ORCA ---
         ORCADIR=/path/to/orca_5_0_4_linux_x86-64_openmpi411   --> (1)
