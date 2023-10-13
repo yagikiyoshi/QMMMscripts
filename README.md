@@ -5,9 +5,15 @@ Script files to run GENESIS
 
 - gaussian  
   - gaussian_xx.com  
-    Input files for Gaussian09/16.
+    Input files for Gaussian09/16
   - run_gaussian  
     Script files to run Gaussian from GENESIS.
+
+- orca
+  - orca_xx.com  
+    Input files for ORCA5
+  - run_orca
+    Script files to run ORCA from GENESIS.
 
 - qchem  
   - qchem_xx.inp  
@@ -23,6 +29,6 @@ Script files to run GENESIS
 
 - dftb+  
   - dftb_xx.inp  
-    Input files for DFTB+ 18/19/20.
+    Input files for DFTB+ 23
   - run_dftb  
     Script files to run DFTB+ from GENESIS.
