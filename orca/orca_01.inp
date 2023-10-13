@@ -1,0 +1,25 @@
+!B3LYP D3ZERO cc-pVDZ ENGRAD
+!Angs NoUseSym
+
+# QM coordinates provided by GENESIS
+*xyzfile 0 1
+
+# SCF convergence
+%scf
+  maxiter 100
+  Guess   MORead
+  MOInp   "moinp.gbw"
+end
+
+# 1GB memory per process
+%MaxCore 1024
+
+# QM charges
+%chelpg
+  grid 0.3 # Spacing of the regular grid in Ang
+  rmax 2.8 # Maximum distance of all atoms to any
+           # gridpoint in Ang
+end
+
+# Comment out if ORCA uses MPI 
+#%pal nprocs 2 end
