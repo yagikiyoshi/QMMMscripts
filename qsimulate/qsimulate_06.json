@@ -1,0 +1,23 @@
+{ "bagel" : [
+
+{
+  "title" : "molecule",
+  "basis" : "cc-pvdz",
+  "df_basis" : "cc-pvdz-jkfit"
+},
+
+{
+  "title" : "force",
+  "target" : 1,
+  "method" : [ {
+    "title"   : "cis",
+    "charge"  : 0,
+    "_opt"    : true,
+    "xc_func" : "cam-b3lyp",
+    "dispersion" : true,
+    "nstate"     : 5
+  } ]
+}
+
+]}
+

@@ -1,0 +1,20 @@
+{ "bagel" : [
+
+{
+  "title" : "molecule",
+  "basis" : "aug-cc-pvdz",
+  "df_basis" : "cc-pvdz-jkfit",
+  "basis_link" : "cc-pvdz",
+  "df_basis_link" : "cc-pvdz-jkfit"
+},
+
+{
+  "title" : "mp2",
+  "charge" : 0,
+  "aux_basis" : "cc-pvdz-ri",
+  "frozen" : true,
+  "population" : true
+}
+
+]}
+

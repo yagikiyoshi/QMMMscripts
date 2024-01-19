@@ -1,0 +1,19 @@
+{ "bagel" : [
+
+{
+  "title" : "molecule",
+  "basis" : "xtb"
+},
+
+{
+  "title" : "force",
+  "method" : [ {
+    "title" : "xtb",
+    "dispersion" : "true",
+    "charge" : 0,
+    "thresh" : 1.0e-7
+  } ]
+}
+
+]}
+

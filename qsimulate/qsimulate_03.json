@@ -1,0 +1,21 @@
+{ "bagel" : [
+
+{
+  "title" : "molecule",
+  "basis" : "svp",
+  "df_basis" : "svp-jfit",
+  "sparse" : true
+},
+
+{
+  "title" : "force",
+  "method" : [ {
+    "title" : "ks",
+    "xc_func" : "pbe",
+    "charge" : 0,
+    "dispersion" : true,
+    "population" : true
+  } ]
+}
+
+]}
