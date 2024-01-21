@@ -22,9 +22,9 @@ Script files to run GENESIS
     Script files to run Q-Chem from GENESIS.
 
 - qsimulate
-  - qsimulate_xx.json 
+  - qsimulate_xx.json  
     Input files for QSimulate-QM.
-  - run_qimulate
+  - run_qimulate  
     Script files to run GENESIS/QSimulate-QM
 
 - terachem  
