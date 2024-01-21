@@ -1,7 +1,13 @@
 # Sample files for QSimulate-QM/GENESIS
 
 ## Description
-"qsimulate_xx.json" are input files for QSimulate-QM.
+A singularity image (QSimulate-QM.sif) is provided by QSimulate upon 
+the purchase of the software.  The image includes GENESIS and 
+QSimulate-QM, which are linked with dynamic libraries. Thus, "qmexe" is 
+not required in the GENESIS input. 
+
+The following files, "qsimulate_xx.json", are sample input files for 
+QSimulate-QM.
 
 ## List of Contents
 - qsimulate_01.json  
