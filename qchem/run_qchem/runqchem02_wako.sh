@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # -----------------------------------------------
-# Settings for Q-Chem 4.4
+# Settings for Q-Chem
 #
 # --- Set the path for Q-Chem ---
-export QC=/home/mdsoft/qchem/qchem_v4.4/intel
+export QC=/home/mdsoft/qchem/qchem_v5.4/intel
 export QCAUX=$QC/qcaux
 export QCSCRATCH=$(pwd)
 . $QC/qcenv.sh

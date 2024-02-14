@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # -----------------------------------------------
-# Settings for Q-Chem 4.4
+# Settings for Q-Chem
 #
 # --- Set the path for Q-Chem ---
 export QC=/usr/local/qchem
