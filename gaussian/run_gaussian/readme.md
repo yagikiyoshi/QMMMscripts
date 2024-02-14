@@ -1,4 +1,4 @@
-## Script files to run Gaussian09/16.
+# Script files to run Gaussian09/16.
 
 ## Description
 GENESIS calls a script to run GAUSSIAN with three arguments as follow,
@@ -16,9 +16,9 @@ folder are examples of such script files.
    Standard script to run GAUSSIAN. You need to modify the following for your system.
 
         # --- Set the path for Gaussian ---
-        export g09root=/usr/local/gaussian     --> (1)
-        export GAUSS_EXEDIR=$g09root/g09
-        export GAUSS_EXEBIN=$g09root/g09/g09
+        export g16root=/path/to/gaussian16     --> (1)
+        export GAUSS_EXEDIR=$g16root/g16
+        export GAUSS_EXEBIN=$g16root/g16/g16
         export PATH=$PATH:$GAUSS_EXEDIR
         export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
         
@@ -27,9 +27,9 @@ folder are examples of such script files.
            	
         # (optional)
         # --- Set a checkpoint file to read initial MOs ---
-        # initialchk='../initial.chk'  --> (3)
+        # initialchk='../path/to/initial.chk'  --> (3)
 
-   (1) The folder where GAUSSIAN is installed. Change "g09" to "g16" for GAUSSIAN16.  
+   (1) The folder where GAUSSIAN is installed. Change "g16" to "g09" for GAUSSIAN09.  
    (2) The folder where GAUSSIAN reads or writes scratch files.  
    (3) Optionally, the checkpoint file for an initial MO.  
 

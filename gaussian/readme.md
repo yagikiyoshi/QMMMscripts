@@ -25,7 +25,8 @@ Some relevant keywords to control GAUSSIAN.
   Sample for minimization. Macro/micro-iteration scheme requires `pop=mk`.
 
 2. gaussian_02.com  
-  Sample for vibrational calculations.
+  Sample for molecular dynamics and vibrational calculations. The same as
+  01 but without `pop=mk`.
 
 3. gaussian_03.com  
   Sample for using customized basis sets `gen`. The basis sets 

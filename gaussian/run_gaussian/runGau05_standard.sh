@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # -----------------------------------------------
-# Settings for Gaussian09
+# Settings for Gaussian16
 #
 # --- Set the path for Gaussian ---
-export g09root=/usr/local/gaussian
-export GAUSS_EXEDIR=$g09root/g09
-export GAUSS_EXEBIN=$g09root/g09/g09
+export g16root=/usr/local/gaussian
+export GAUSS_EXEDIR=$g16root/g16
+export GAUSS_EXEBIN=$g16root/g16/g16
 export PATH=$PATH:$GAUSS_EXEDIR
 export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 
@@ -49,7 +49,7 @@ grep -v -i nproc $QMINP >> $TMP
 mv $TMP $QMINP
 
 # -----------------------------------------------
-# Now exe g09 and create a formatted chk file
+# Now execute GAUSSIAN and create a fchk file
 #
 (time $GAUSS_EXEBIN < $QMINP) > ${QMOUT} 2>&1
 formchk gaussian.chk gaussian.Fchk >& /dev/null

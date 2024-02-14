@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # -----------------------------------------------
-# Settings for Gaussian09
+# Settings for Gaussian16
 #
 # --- Set the path for Gaussian ---
-export g09root=/usr/local/gaussian
-export GAUSS_EXEDIR=$g09root/g09
-export GAUSS_EXEBIN=$g09root/g09/g09
+export g16root=/path/to/gaussian16
+export GAUSS_EXEDIR=$g16root/g16
+export GAUSS_EXEBIN=$g16root/g16/g16
 export PATH=$PATH:$GAUSS_EXEDIR
 export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 
@@ -14,8 +14,8 @@ export LD_LIBRARY_PATH=${GAUSS_EXEDIR}:${LD_LIBRARY_PATH}
 scratch=./
 
 # (optional) 
-# --- Set a checkpoint file to read initial MOs ---
-#initialchk='../initial.chk'
+# --- Set a chkpoint file to read initial MOs ---
+#initialchk='../path/to/initial.chk'
 
 # -----------------------------------------------
 
