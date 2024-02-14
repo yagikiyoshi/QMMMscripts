@@ -2,9 +2,9 @@
 topfile = ../toppar/top_all36_prot.rtf     # topology file
 parfile = ../toppar/par_all36m_prot.prm    # parameter file
 strfile = ../toppar/toppar_water_ions.str  # stream file
-psffile = ../2_system/snapshot50.psf        # protein structure file
-pdbfile = ../2_system/snapshot50.pdb        # PDB file
-reffile = ../2_system/snapshot50.pdb        # PDB file
+psffile = ../system/snapshot50.psf        # protein structure file
+pdbfile = ../system/snapshot50.pdb        # PDB file
+reffile = ../system/snapshot50.pdb        # PDB file
 rstfile = ../1_dftb+/qmmm_nvt.rst
 
 [OUTPUT]

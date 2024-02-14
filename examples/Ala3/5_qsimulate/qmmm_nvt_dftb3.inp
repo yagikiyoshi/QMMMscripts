@@ -5,7 +5,7 @@ strfile = ../toppar/toppar_water_ions.str  # stream file
 psffile = ../system/snapshot50.psf        # protein structure file
 pdbfile = ../system/snapshot50.pdb        # PDB file
 reffile = ../system/snapshot50.pdb        # PDB file
-rstfile = qmmm_min.rst
+rstfile = ../1_dftb+/qmmm_nvt.rst
 
 [OUTPUT]
 dcdfile = qmmm_nvt.dcd
@@ -21,11 +21,11 @@ vdw_force_switch = YES
 
 [DYNAMICS]
 integrator      = VVER          # [LEAP,VVER]
-nsteps          = 50000         # number of MD steps
+nsteps          = 100           # number of MD steps
 timestep        = 0.002         # timestep (ps)
-eneout_period   = 50            # energy output period
-crdout_period   = 100 
-rstout_period   = 50000    
+eneout_period   = 1             # energy output period
+crdout_period   = 1  
+rstout_period   = 100
 nbupdate_period = 10
 stoptr_period   = 10
 
@@ -43,14 +43,12 @@ spherical_pot = yes
 restart       = yes
 
 [QMMM]
-qmtyp               = dftb+
-qmcnt               = dftb_01.hsd
-qmexe               = runDFTB.sh
+qmtyp               = qsimulate
+qmcnt               = qsimulate.json
 qmatm_select_index  = 1
-workdir             = /dev/shm/qmmm_nvt
-savedir             = qmmm_nvt
+workdir             = qmmm_nvt
 basename            = job
-qmsave_period       = 100
+qmsave_period       = 10
 qmmaxtrial          = 1
 
 [SELECTION]
