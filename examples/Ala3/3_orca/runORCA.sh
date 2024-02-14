@@ -3,6 +3,11 @@
 # -----------------------------------------------
 # Settings for ORCA
 #
+# --- Set the path for OpenMPI ---
+mpi=/path/to/openmpi-v4.1.1
+export PATH=$mpi/bin:$PATH
+export LD_LIBRARY_PATH=$mpi/lib
+
 # --- Set the path for ORCA ---
 ORCADIR=/path/to/orca_5_0_4_linux_x86-64_openmpi411
 export PATH=${ORCADIR}:${PATH}

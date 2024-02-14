@@ -21,11 +21,11 @@ vdw_force_switch = YES
 
 [DYNAMICS]
 integrator      = VVER          # [LEAP,VVER]
-nsteps          = 100           # number of MD steps
+nsteps          = 5000          # number of MD steps
 timestep        = 0.002         # timestep (ps)
-eneout_period   = 1             # energy output period
-crdout_period   = 1  
-rstout_period   = 100
+eneout_period   = 50            # energy output period
+crdout_period   = 100
+rstout_period   = 5000
 nbupdate_period = 10
 stoptr_period   = 10
 
@@ -44,11 +44,11 @@ restart       = yes
 
 [QMMM]
 qmtyp               = qsimulate
-qmcnt               = qsimulate.json
+qmcnt               = qsimulate_dftb3.json
 qmatm_select_index  = 1
 workdir             = qmmm_nvt
 basename            = job
-qmsave_period       = 10
+qmsave_period       = 100
 qmmaxtrial          = 1
 
 [SELECTION]

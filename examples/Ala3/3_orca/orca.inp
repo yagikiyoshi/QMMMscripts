@@ -14,5 +14,5 @@ end
 # 1GB memory per process
 %MaxCore 1024
 
-# Comment out if ORCA uses MPI 
+# MPI processes
 %pal nprocs 2 end
