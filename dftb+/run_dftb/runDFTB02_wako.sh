@@ -4,6 +4,7 @@
 # Settings for DFTB+
 #
 # --- Set the path for DFTB+ ---
+. /home/mdsoft/mpi-selector/data/intelmpi-21.4.0_intel-21.4.0_cuda-11.4_rockylinux8.sh
 export PATH=/home/mdsoft/dftb/dftbplus-23.1/_install/bin:$PATH
 
 # (optional) 
