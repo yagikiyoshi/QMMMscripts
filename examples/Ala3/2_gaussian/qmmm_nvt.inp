@@ -25,8 +25,8 @@ nsteps          = 100           # number of MD steps
 timestep        = 0.002         # timestep (ps)
 eneout_period   = 1             # energy output period
 crdout_period   = 1  
-rstout_period   = 100
-nbupdate_period = 10
+rstout_period   = 10
+nbupdate_period = 1
 stoptr_period   = 10
 
 [CONSTRAINTS]

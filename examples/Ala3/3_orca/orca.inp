@@ -15,4 +15,4 @@ end
 %MaxCore 1024
 
 # Comment out if ORCA uses MPI 
-#%pal nprocs 2 end
+%pal nprocs 2 end

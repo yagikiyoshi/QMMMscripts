@@ -5,7 +5,7 @@
 #
 # --- Set the path for ORCA ---
 . /home/mdsoft/mpi-selector/data/eth-openmpi-4.1.1_intel-21.4.0_cuda-11.4_rockylinux8.sh
-ORCADIR=/home/yagi/pgm/orca_5_0_4_linux_x86-64_openmpi411
+ORCADIR=/home/mdsoft/orca/orca_5_0_4_linux_x86-64_openmpi411
 export PATH=${ORCADIR}:${PATH}
 
 # --- Set the path for a scratch folder ---
