@@ -1,0 +1,11 @@
+basis            cc-pVDZ    # Dunning's cc-pVDZ
+sphericalbasis   yes        # spherical basis for cc-pVDZ
+method           b3lyp
+dftd             d3
+charge           0
+spinmult         1
+run              gradient
+resp             no         # not needed for Vib/MD
+convthre         3.0e-05    # scaled by 10 if SCF fails to converge
+guess            c0         # ca0 cb0 for UHF/UKS
+end

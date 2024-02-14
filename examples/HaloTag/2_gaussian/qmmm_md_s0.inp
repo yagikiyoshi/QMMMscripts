@@ -1,0 +1,65 @@
+[INPUT]
+topfile = ../toppar/top_all36_prot.rtf, ../toppar/top_all36_lipid.rtf, ../toppar/top_all36_cgenff.rtf
+parfile = ../toppar/par_all36_prot.prm, ../toppar/par_all36_lipid.prm, ../toppar/par_all36_cgenff.prm
+strfile = ../toppar/toppar_water_ions.str, ../toppar/toppar_haloprobe4_7.str
+psffile = ../../47.HT7M2AL_EQUIL_1/step13_nvt_1000.psf     # protein structure file
+pdbfile = ../../47.HT7M2AL_EQUIL_1/step13_nvt_1000.pdb     # PDB file
+reffile = ../../47.HT7M2AL_EQUIL_1/step13_nvt_1000.pdb     # PDB file
+rstfile = ../run1/qmmm_md_s0.rst
+
+[OUTPUT]
+rstfile   = qmmm_md_s0.rst
+dcdfile   = qmmm_md_s0.dcd
+
+[ENERGY]
+forcefield       = CHARMM    # [CHARMM]
+electrostatic    = CUTOFF    # [CUTOFF,PME]
+switchdist       = 16.0      # switch distance
+cutoffdist       = 18.0      # cutoff distance
+pairlistdist     = 19.5      # pair-list distance
+vdw_force_switch = YES
+
+[DYNAMICS]
+integrator       = VVER
+nsteps           = 1000    # 2 ps
+timestep         = 0.002
+nbupdate_period  = 10
+eneout_period    = 1
+crdout_period    = 10
+rstout_period    = 10
+esp_mm           = no
+iseed            = 20190716
+
+[CONSTRAINTS]
+rigid_bond       = YES
+
+[ENSEMBLE]
+ensemble         = NVT
+tpcontrol        = BUSSI
+temperature      = 300.0
+
+[BOUNDARY]
+type          = NOBC      # [PBC,NOBC]
+spherical_pot = yes
+
+[QMMM]
+qmtyp         = gaussian
+qmcnt         = ../gaussian_s0.com
+qmexe         = ../runGau03_shm.sh
+workdir       = qmmm_md_s0
+basename      = job
+qmsave_period = 50
+qmmaxtrial    = 1
+qmatm_select_index = 1 
+exclude_charge     = group
+
+[SELECTION]
+group1  = atomno:1633-1699 # from C39 to H54Z
+group2  = atomno:1596 # HSD104:O
+
+[RESTRAINTS]
+nfunctions      = 1
+function1       = POSI
+constant1       = 2.0
+select_index1   = 2
+

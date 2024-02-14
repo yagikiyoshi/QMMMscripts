@@ -1,0 +1,65 @@
+[INPUT]
+topfile = ../toppar/top_all36_prot.rtf     # topology file
+parfile = ../toppar/par_all36m_prot.prm    # parameter file
+strfile = ../toppar/toppar_water_ions.str  # stream file
+psffile = ../2_system/snapshot50.psf        # protein structure file
+pdbfile = ../2_system/snapshot50.pdb        # PDB file
+reffile = ../2_system/snapshot50.pdb        # PDB file
+rstfile = ../1_dftb+/qmmm_nvt.rst
+
+[OUTPUT]
+dcdfile = qmmm_nvt.dcd
+rstfile = qmmm_nvt.rst
+
+[ENERGY]
+forcefield       = CHARMM        # [CHARMM]
+electrostatic    = CUTOFF    # [CUTOFF,PME]
+switchdist       = 16.0      # switch distance
+cutoffdist       = 18.0      # cutoff distance
+pairlistdist     = 19.5      # pair-list distance
+vdw_force_switch = YES
+
+[DYNAMICS]
+integrator      = VVER          # [LEAP,VVER]
+nsteps          = 100           # number of MD steps
+timestep        = 0.002         # timestep (ps)
+eneout_period   = 1             # energy output period
+crdout_period   = 1  
+rstout_period   = 100
+nbupdate_period = 10
+stoptr_period   = 10
+
+[CONSTRAINTS]
+rigid_bond      = YES           # constraints all bonds involving hydrogen
+
+[ENSEMBLE]
+ensemble        = NVT           # [NVE,NVT,NPT]
+tpcontrol       = BUSSI         # thermostat and barostat
+temperature     = 300.0         # initial temerature (K)
+
+[BOUNDARY]
+type          = NOBC      # [PBC,NOBC]
+spherical_pot = yes
+restart       = yes
+
+[QMMM]
+qmtyp               = gaussian
+qmcnt               = gaussian.com
+qmexe               = runGau.sh
+qmatm_select_index  = 1
+workdir             = qmmm_nvt
+basename            = job
+qmsave_period       = 10
+qmmaxtrial          = 1
+
+[SELECTION]
+group1  = segid:PROA
+group2  = atomno:19
+
+[RESTRAINTS]
+nfunctions    = 1
+function1     = POSI
+constant1     = 10
+select_index1 = 2
+
+
