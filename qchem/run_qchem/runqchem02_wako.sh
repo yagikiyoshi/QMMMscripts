@@ -11,11 +11,7 @@ export QCSCRATCH=$(pwd)
 export PATH=$QC/bin:$QC/exe:${PATH}
 
 # --- Set the path for a scratch folder ---
-if [ -e /scr2 ]; then
-  scratch=/scr2/${USER}
-else
-  scratch=/scr/${USER}
-fi
+scratch=/scr/${USER}
 
 # (optional) 
 # --- Set a folder where initial MOs are stored ---
@@ -72,7 +68,9 @@ rm $MOL.e
 # Post process
 #
 rm -r ${QCLOCALSCR}
-rm pathtable
+if [ -e pathtable ]; then
+  rm pathtable
+fi
 
 exit 0
 

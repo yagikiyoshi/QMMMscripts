@@ -68,7 +68,9 @@ rm $MOL.e
 # Post process
 #
 rm -r ${QCLOCALSCR}
-rm pathtable
+if [ -e pathtable ]; then
+  rm pathtable
+fi
 
 exit 0
 
