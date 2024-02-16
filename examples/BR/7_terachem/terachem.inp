@@ -1,0 +1,16 @@
+basis          vdz_adz
+sphericalbasis yes
+method         b3lyp
+dftd           d3
+charge         0
+spinmult       1
+run            gradient
+resp           yes        # needed for micro-iteration
+convthre       3.0e-05    # scaled by 10 if SCF fails to converge
+guess          c0         # ca0 cb0 for UHF/UKS
+#precision      double
+esp_restraint_a 0.0
+esp_restraint_b 0.0
+end
+
+linkHname      Hx

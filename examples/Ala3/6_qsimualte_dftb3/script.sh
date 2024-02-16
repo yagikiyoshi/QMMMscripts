@@ -7,4 +7,4 @@ export QSIMULATE_VALUE="xxxx"
 # GENESIS (atdyn) and QSimulate-QM run with 4 MPI x 8 threads
 #
 export OMP_NUM_THREADS=8
-mpirun -n 4 singularity exec QSimulate-QM.sif atdyn inp > out
+mpirun -n 4 singularity exec QSimulate-QM.sif atdyn qmmm_nvt.inp > qmmm_nvt.out

@@ -3,47 +3,47 @@ topfile = ../toppar/top_all36_prot.rtf, ../toppar/top_all36_lipid.rtf
 parfile = ../toppar/par_all36_prot.prm, ../toppar/par_all36_lipid.prm
 strfile = ../toppar/toppar_all36_prot_retinol.str, \
           ../toppar/toppar_water_ions.str, ../toppar/toppar_dum_noble_gases.str
-psffile = ../build_mem2/step6.19_snapshot_1000.psf        # protein structure file
-pdbfile = ../build_mem2/step6.19_snapshot_1000.pdb        # PDB file
- 
+psffile = ../system/step6.19_snapshot_1000.psf        # protein structure file
+pdbfile = ../system/step6.19_snapshot_1000.pdb        # PDB file
+
 [OUTPUT]
 rstfile = qmmm_min.rst
 dcdfile = qmmm_min.dcd
 
 [ENERGY]
-forcefield       = CHARMM        # [CHARMM]
-electrostatic    = CUTOFF        # [CUTOFF,PME]
-switchdist       = 16.0          # switch distance
-cutoffdist       = 18.0          # cutoff distance
-pairlistdist     = 19.5          # pair-list distance
-vdw_force_switch = YES
+forcefield          = CHARMM # [CHARMM]
+electrostatic       = CUTOFF # [CUTOFF,PME]
+switchdist          = 16.0   # switch distance
+cutoffdist          = 18.0   # cutoff distance
+pairlistdist        = 19.5   # pair-list distance
+vdw_force_switch    = YES
 
 [MINIMIZE]
 method             = LBFGS
-nsteps             = 500  # number of steps
+nsteps             = 50   # number of steps
 eneout_period      = 1    # energy output period
 crdout_period      = 5    # coordinates output period
 rstout_period      = 1    # restart output period
 nbupdate_period    = 1
 macro              = yes
 lbfgs_bnd_qmonly   = no
-nsteps_micro       = 100
+nsteps_micro       = 10 
 fixatm_select_index = 6
 
 [BOUNDARY]
-type               = NOBC           # [PBC]
+type          = NOBC
 
 [QMMM]
-qmtyp              = terachem
-qmcnt              = terachem_01.inp
-qmexe              = runTC02_wako.sh
-workdir            = qmmm_min
-basename           = job
-qmmaxtrial         = 1
-qmsave_period      = 10
+qmtyp               = dftb+
+qmcnt               = dftb_01.hsd
+qmexe               = runDFTB.sh
+workdir             = /dev/shm/qmmm_min
+savedir             = qmmm_min
+basename            = job
+qmmaxtrial          = 1
+qmsave_period       = 10
 qmatm_select_index = 1 2 3 4 5
 exclude_charge     = group
-qminfo             = yes
 
 [SELECTION]
 group1  = atomno:1209-1220  #BR ARG78  CD,HD1,HD2,NE,HE,CZ,NH1,HH11,HH12,NH2,HH21,HH22
@@ -52,5 +52,4 @@ group3  = atomno:3270-3275  #BR ASP208 CB,HB1,HB2,CG,OD1,OD2
 group4  = atomno:3324-3382  #BR LYR212
 group5  = sid:WAT and (resno:12-14)
 group6  = not (sid:BR or sid:WAT or sid:DOW)
-
 
