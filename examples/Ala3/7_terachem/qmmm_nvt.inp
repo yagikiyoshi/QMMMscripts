@@ -5,7 +5,7 @@ strfile = ../toppar/toppar_water_ions.str  # stream file
 psffile = ../system/snapshot50.psf        # protein structure file
 pdbfile = ../system/snapshot50.pdb        # PDB file
 reffile = ../system/snapshot50.pdb        # PDB file
-rstfile = ../1_dftb+/qmmm_nvt.rst
+rstfile = ../system/qmmm_nvt.rst
 
 [OUTPUT]
 dcdfile = qmmm_nvt.dcd
