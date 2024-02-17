@@ -2,21 +2,20 @@
 
 {
   "title" : "molecule",
-  "basis" : "aug-cc-pvdz",
-  "df_basis" : "cc-pvdz-jkfit",
-  "basis_link" : "cc-pvdz",
-  "df_basis_link" : "cc-pvdz-jkfit"
+  "basis" : "cc-pvdz",
+  "df_basis" : "cc-pvdz-jkfit"
 },
 
 {
   "title" : "force",
   "method" : [ {
     "title" : "ks",
-    "charge" : -3,
     "xc_func" : "b3lyp",
+    "charge" : -3,
     "dispersion" : true,
-    "population" : true
+    "population" : false
   } ]
 }
 
 ]}
+
