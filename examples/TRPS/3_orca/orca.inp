@@ -1,0 +1,18 @@
+!B3LYP D3ZERO cc-pVDZ ENGRAD
+!Angs NoUseSym
+
+# QM coordinates provided by GENESIS
+*xyzfile -3 1
+
+# SCF convergence
+%scf
+  maxiter 100
+  Guess   MORead
+  MOInp   "moinp.gbw"
+end
+
+# 1GB memory per process
+%MaxCore 1024
+
+# Comment out if ORCA uses MPI 
+%pal nprocs 8 end

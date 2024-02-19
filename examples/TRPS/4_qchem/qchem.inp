@@ -1,0 +1,23 @@
+$comment
+QChem run for QMMM in genesis
+$end
+
+$rem
+method            B3LYP
+dft_d             empirical_grimme3
+basis             cc-pVDZ
+jobtype           force
+qm_mm             true
+qmmm_print        false
+max_scf_cycles    500
+symmetry          off
+sym_ignore        true
+mem_static        2000
+scf_guess         read
+gui               2
+$end
+
+$molecule
+-3 1
+$end
+

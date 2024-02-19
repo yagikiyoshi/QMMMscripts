@@ -1,0 +1,66 @@
+[INPUT]
+prmtopfile = ../system/droplet.parm7
+reffile    = ../system/step1_i32_free_noMass_1.pdb
+pdbfile    = ../system/step1_i32_free_noMass_1.pdb
+rstfile    = ../system/equil2_1.rst
+
+[OUTPUT]
+dcdfile = qmmm_nvt.dcd
+rstfile = qmmm_nvt.rst
+
+[ENERGY]
+forcefield       = AMBER
+electrostatic    = CUTOFF    # [CUTOFF,PME]
+switchdist       = 16.0      # switch distance
+cutoffdist       = 18.0      # cutoff distance
+pairlistdist     = 19.5      # pair-list distance
+dispersion_corr  = EPRESS
+vdw_force_switch = YES
+
+[DYNAMICS]
+integrator      = VVER          # [LEAP,VVER]
+nsteps          = 5000          # number of MD steps
+timestep        = 0.002         # timestep (ps)
+eneout_period   = 50            # energy output period
+crdout_period   = 100
+rstout_period   = 5000
+nbupdate_period = 10
+stoptr_period   = 10
+
+[CONSTRAINTS]
+rigid_bond      = YES           # constraints all bonds involving hydrogen
+
+[ENSEMBLE]
+ensemble        = NVT           # [NVE,NVT,NPT]
+tpcontrol       = BUSSI         # thermostat and barostat
+temperature     = 300.0         # initial temerature (K)
+
+[BOUNDARY]
+type          = NOBC      # [PBC,NOBC]
+spherical_pot = yes
+restart       = yes
+
+[QMMM]
+qmtyp               = dftb+
+qmcnt               = dftb_01.hsd
+qmexe               = runDFTB.sh
+qmatm_select_index  = 1
+workdir             = /dev/shm/qmmm_nvt
+savedir             = qmmm_nvt
+basename            = job
+qmsave_period       = 100
+qmmaxtrial          = 1
+qm_total_charge     = -3
+
+[SELECTION]
+group1  = rnam:PLS or (rnam:LYN and \
+          not (an:CA  | an:C   | an:O   | an:N | an:HN | an:HA | an:H))
+group2  = (rno:1-668 and (an:CA | an:C | an:O | an:N))
+
+[RESTRAINTS]
+nfunctions    = 1
+function1     = POSI
+constant1     = 10
+select_index1 = 2
+
+
